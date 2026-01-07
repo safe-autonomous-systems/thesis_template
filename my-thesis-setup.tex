@@ -1,0 +1,120 @@
+% !TEX root = main.tex
+
+\usepackage{subfiles}
+% **************************************************
+% Files' Character Encoding
+% **************************************************
+\PassOptionsToPackage{utf8}{inputenc}
+\usepackage{inputenc}
+
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\usepackage[document]{ragged2e}
+
+
+% **************************************************
+% Information and Commands for Reuse
+% **************************************************
+\newcommand{\thesisTitle}{Thesis Title}
+\newcommand{\thesisName}{Student Name}
+\newcommand{\matrikelnummer}{Matrikelnummer}
+\newcommand{\thesisSubject}{Master’s Thesis}
+\newcommand{\thesisDate}{Thesis Date}
+\newcommand{\thesisVersion}{My First Draft}
+
+\newcommand{\thesisFirstReviewer}{First Reviewer}
+\newcommand{\thesisFirstReviewerUniversity}{\protect{First Reviewer University}}
+\newcommand{\thesisFirstReviewerDepartment}{First Reviewer Department}
+
+\newcommand{\thesisSecondReviewer}{Second Reviewer}
+\newcommand{\thesisSecondReviewerUniversity}{\protect{Second Reviewer University}}
+\newcommand{\thesisSecondReviewerDepartment}{Second Reviewer Department}
+
+\newcommand{\thesisFirstSupervisor}{First Supervisor}
+% \newcommand{\thesisSecondSupervisor}{}
+
+\newcommand{\thesisUniversity}{TU Dortmund University}
+\newcommand{\thesisUniversityDepartment}{Faculty of Computer Science}
+\newcommand{\thesisUniversityInstitute}{Lamarr Institute for Machine Learning and Artificial Intelligence}
+\newcommand{\thesisUniversityGroup}{Safe Autonomous Systems (SAS)}
+\newcommand{\thesisUniversityCity}{Dortmund}
+\newcommand{\thesisUniversityStreetAddress}{Joseph-von-Fraunhofer-Str. 25}
+\newcommand{\thesisUniversityPostalCode}{44227}
+
+
+% **************************************************
+% Debug LaTeX Information
+% **************************************************
+%\listfiles
+
+
+% **************************************************
+% Load and Configure Packages
+% **************************************************
+\usepackage[english]{babel} % babel system, adjust the language of the content
+\usepackage[belowskip=7pt]{caption} % increase spacing between table and caption
+
+% ******************************
+% Clean thesis
+
+\PassOptionsToPackage{% setup clean thesis style
+    figuresep=colon,%
+    hangfigurecaption=false,%
+    hangsection=true,%
+    hangsubsection=true,%
+    sansserif=false,%
+    configurelistings=true,%
+    colorize=full,%
+    colortheme=upbisg,%
+    configurebiblatex=false,%
+}{cleanthesis}
+\usepackage{cleanthesis}
+
+
+% ******************************
+% BibLaTeX
+
+\PassOptionsToPackage{% setup clean thesis style
+    backend=biber,              % Biblatex backend
+    natbib=true,                % Provide natbib command compatibility
+    citestyle=authoryear,       % Citation style within text
+    bibstyle=authoryear,        % Citation style in bibliography
+    dashed=false,               % Don't replace recurrent author names with a dash
+    date=year,                  % Set the publication date in the bibliography to year only
+    urldate=ymd,                % Set the date format for the url labels in the bibliography to YYYY-MM-DD
+    sorting=nyt,                % Sort citations by name-year-title in the bibliography
+    sortcites=false,            % Do not sort the citations within text
+    maxcitenames=1,             % Maximum number of names in document-body citations
+    maxbibnames=99,             % Maximum number of names in bibliography
+    uniquelist=false,           % Don't require unique citation names (year not included) to not overwrite maxcitenames
+}{biblatex}
+\usepackage{biblatex}
+% Don't switch the ordering for the first name in bibliography
+\DeclareNameAlias{sortname}{first-last}
+\bibliography{bib-refs}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+% ******************************
+% hyperref
+
+\hypersetup{
+    pdftitle={\thesisTitle},    %   - title (PDF meta)
+    pdfsubject={\thesisSubject},%   - subject (PDF meta)
+    pdfauthor={\thesisName},    %   - author (PDF meta)
+    plainpages=false,           %   -
+    colorlinks=false,           %   - colorize links?
+    pdfborder={0 0 0},          %   -
+    breaklinks=true,            %   - allow line break inside links
+    bookmarksnumbered=true,     %
+    bookmarksopen=true          %
+}
+
+% **************************************************
+% Other Packages
+% **************************************************
+\usepackage{scrhack}
+\usepackage{mathtools}
+\usepackage{booktabs}
